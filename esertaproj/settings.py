@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'penganjur',
     'import_export',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'esertaproj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,27 +76,27 @@ WSGI_APPLICATION = 'esertaproj.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-# }
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+   }
+}
 
 #MCDB SETUP
-DATABASES = {
-    'default': {
-        'ENGINE' : 'sql_server.pyodbc',
-        'NAME' : 'DBUAT_arif',
-        'USER' : 'sa',
-        'PASSWORD' : 'cdbdev@2017',
-        'HOST' : '10.101.1.100',
-        'PORT' : '1433',
-        'OPTIONS' : {
-            'driver': 'ODBC Driver 13 for SQL Server'
-        },
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE' : 'sql_server.pyodbc',
+#         'NAME' : 'DBUAT_arif',
+#         'USER' : 'sa',
+#         'PASSWORD' : 'cdbdev@2017',
+#         'HOST' : '10.101.1.100',
+#         'PORT' : '1433',
+#         'OPTIONS' : {
+#             'driver': 'ODBC Driver 13 for SQL Server'
+#         },
+#     }
+# }
 
 
 
@@ -136,3 +137,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+CRISPY_TEMPLATE_PACK='bootstrap3'
