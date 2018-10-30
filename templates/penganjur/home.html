@@ -1,1 +1,37 @@
-<p>Nak ke xnak lepak mamak.</p>
+<p>Home Penganjur</p>
+
+<table>
+	<tr>
+		<th>Tajuk</th>
+		<th>Tempat</th>
+		<th>Penceramah</th>
+		<th>Had Peserta</th>
+		<th>Tindakan</th>
+	</tr>
+{% for a in aktiviti %}
+	<tr>
+		<td>{{ a.tajuk }}</td>
+		<td>{{ a.tempat }}</td>
+		<td>{{ a.penceramah }}</td>
+		<td>{{ a.hadpeserta }}</td>
+		<td>
+		<a href="{% url 'delete_aktiviti' a.pk %}"><button class="btn btn-primary">Hapus</button>
+		</a> |
+		<a href="{% url 'edit_aktiviti' a.pk %}"><button class="btn btn-primary">Edit</button>
+		</a></td>
+	</tr>
+{% endfor %}
+</table>
+
+<p>
+	<a href="{% url 'add_aktiviti'%}"><button class="btn btn-primary">Tambah</button></a>
+
+</p>
+<!-- {% for a in aktiviti %}
+<p>
+{{ a.tajuk }} 
+{{ a.tempat }} 
+{{ a.penceramah }} 
+{{ a.hadpeserta }}
+</p>
+{% endfor %} -->
